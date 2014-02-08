@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+
+  "name": "Blurb",
+  "description": "This extension takes user input and gives recommended news article for the user.",
+  "version": "0.1",
+
+  "permissions": [
+    "https://secure.flickr.com/"
+  ],
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  }
+}
