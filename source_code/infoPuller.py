@@ -29,4 +29,6 @@ def getArticles():
         print docs
         for article in docs:
             articles.append(article["lead_paragraph"])
+            articles.append(article["snippet"])
+            articles.append(article["abstract"])
     return articles
