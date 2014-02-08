@@ -29,5 +29,4 @@ def getArticles():
         print docs
         for article in docs:
             articles.append(article["lead_paragraph"])
-    print articles[0]
     return articles
