@@ -6,4 +6,5 @@ class Article(object):
 
     def __init__(self, art, URL):
         self.URL = URL
-        self.art = wordUtils.getWordVector(art)
+        self.vect = wordUtils.getWordVector(art)
+

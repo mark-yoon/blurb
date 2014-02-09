@@ -11,5 +11,6 @@ def getWordVector(article):
     wordVector = [0]*len(wordList)
     for word in articleWords:
         index = wordList.index(word)
-        wordVector[index] = wordVector[index] + 1
+        if (index != -1):
+            wordVector[index] = wordVector[index] + 1
     return wordVector

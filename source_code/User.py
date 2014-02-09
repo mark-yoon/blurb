@@ -8,7 +8,7 @@ def newClient(ID, weights):
     db = MySQLdb.connect(host="localhost",
                              user="root",
                              passwd="password",
-                             db="test")
+                             db="hackathonbb2014")
     cur = db.cursor()
     cur.execute("INSERT INTO clients VALUES ('%s', '%s')" 
                               % (ID, json.dumps(weights)))
@@ -18,9 +18,9 @@ def updateClient(ID, weights):
     db = MySQLdb.connect(host="localhost",
                          user="root",
                          passwd="password",
-                         db="test")
+                         db="hackathonbb2014")
     cur = db.cursor()
-    cur.execute("UPDATE clients SET ID='%s', VECTOR='%s' WHERE ID='%s'" 
+    cur.execute("UPDATE clients SET ID='%s', VECTOR1='%s' WHERE ID='%s'" 
                   % (ID, json.dumps(weights), ID))
     db.commit()
 
