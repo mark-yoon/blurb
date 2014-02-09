@@ -66,7 +66,7 @@ def get_vector(strn):
 	res = []
 	for line in f:
 		line = line.replace("\n","")
-		res.append(strn, line)
+		res.append(count(strn, line))
 	return res
 
 def count(strn,word):
