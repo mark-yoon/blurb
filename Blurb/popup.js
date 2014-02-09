@@ -28,9 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // onClick's logic below:
     link.addEventListener('click', function() {
       var myjson;
-      $.getJSON('localhost:8080', function(json){
-      myjson = json;
+      $.getJSON('localhost:8080', function(test){
+      	alert(test.url1);
 	  });
-      alert(myjson.extract());
     });
 });
