@@ -1,30 +1,28 @@
 import numpy as np
 import scipy as sp
 import wordUtils
+import MySQLdb
+import json
 
-class User(object):
-	vector = []
-	userID = 0
+def newClient(ID, weights):
+    db = MySQLdb.connect(host="localhost",
+                             user="root",
+                             passwd="password",
+                             db="test")
+    cur = db.cursor()
+    cur.execute("INSERT INTO clients VALUES ('%s', '%s')" 
+                              % (ID, json.dumps(weights)))
+    db.commit()
 
-	def __init__(self, weights, ID):
-		vector = [0]*2000
-		userID = ID
-
-	def updateVector(self, article, like):
-		updateWeight = (int(like)-0.5)*2
-		for word in article:
-			vector[word] = vector[word] + updateWeight
-
-	def getMostSimilar(self, articles): # What info do these articles contain?
-		mostSimilar = -1
-		mostSimilarArticle = None
-		for art in articles:
-			y = getSimilarity(art, self.vector)
-			if y > mostSimilar:
-				mostSimilar = y
-				mostSimilarArticle = art
-		return art
-
+def updateClient(ID, weights):
+    db = MySQLdb.connect(host="localhost",
+                         user="root",
+                         passwd="password",
+                         db="test")
+    cur = db.cursor()
+    cur.execute("UPDATE clients SET ID='%s', VECTOR='%s' WHERE ID='%s'" 
+                  % (ID, json.dumps(weights), ID))
+    db.commit()
 
 def getSimilarity(vect1, vect2):
 	return (numpy.dot(vect1, vect2)/
