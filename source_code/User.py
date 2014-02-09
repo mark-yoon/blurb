@@ -11,7 +11,7 @@ def newClient(ID, weights):
                              db="hackathonbb2014")
     cur = db.cursor()
     cur.execute("INSERT INTO clients VALUES ('%s', '%s')" 
-                              % (ID, json.dumps(weights)))
+                              % (ID, json.dumps(weightsv)))
     db.commit()
 
 def updateClient(ID, weights):
@@ -23,6 +23,17 @@ def updateClient(ID, weights):
     cur.execute("UPDATE clients SET ID='%s', VECTOR1='%s' WHERE ID='%s'" 
                   % (ID, json.dumps(weights), ID))
     db.commit()
+
+def getWeights(ID):
+    db = MySQLdb.connect(host="localhost",
+                         user="root",
+                         passwd="password",
+                         db="hackathonbb2014")
+    cur = db.cursor()
+    cur.execute("SELECT FROM clients WHERE id=%s" % ID)
+    vect = cur.fetchall()
+    return json.loads(vect[0][1])
+
 
 def getSimilarity(vect1, vect2):
 	return (numpy.dot(vect1, vect2)/
