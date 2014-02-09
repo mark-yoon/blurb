@@ -22,7 +22,6 @@ def getArticles():
     articles = []
     for i in range(numArticles):
         urlcopy = url
-        print i
         urlcopy = urlcopy + "&begin_date=" + getRandomDay()
         urlcopy = urlcopy + "&api-key=" + key
         page = urllib2.urlopen(urlcopy)

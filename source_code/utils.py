@@ -60,3 +60,24 @@ def remove_non_alpha_numerics(file1,file2):
 		l = l.replace("\n","")
 		if l.isalpha() or l.isalnum() :
 			g.write(l+"\n")
+
+def get_vector(strn):
+	f = open("words.txt")
+	res = []
+	for line in f:
+		line = line.replace("\n","")
+		res.append(count(strn, line))
+	return res
+
+def count(strn,word):
+	if strn == None:
+		return 0
+	count = 0
+	l = strn.split()
+	for w in l:
+		if w[len(w)-1] == ',' || w[len(w)-1] == '\'' || w[len(w)-1] == '\"':
+			w = w[:(len(w) - 1)]
+		if w == word:
+			count = count + 1
+	return count
+
