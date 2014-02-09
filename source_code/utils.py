@@ -26,8 +26,9 @@ def get_words(lst,n):
 	semi_final_list = []
 	
 	for strn in lst:
-		for s in string_list(strn) :
-			semi_final_list.append(s)
+		if strn != None :
+			for s in string_list(strn) :
+				semi_final_list.append(s)
 	
 	final_set = set(semi_final_list)
 	new_dictionary = {}
@@ -47,6 +48,7 @@ def get_words(lst,n):
 	write_to_file(final_list)
 
 def write_to_file(lst):
-	f = open("words.txt")
+	f = open("words.txt", "w")
 	for w in lst:
+		w = w.encode("ascii", "ignore")
 		f.write(w+"\n")

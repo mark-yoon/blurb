@@ -1,9 +1,10 @@
 import json
 import urllib2
 import random
+import time
 
 key = "33FD9081AE0D75A3717CCBBAAABBA66B:10:68797139"
-numArticles = 1
+numArticles = 100
 
 def getRandomDay():
     year = str(random.randint(2000, 2013))
@@ -20,13 +21,15 @@ def getArticles():
     url = "http://api.nytimes.com/svc/search/v2/articlesearch.json?sort=oldest"
     articles = []
     for i in range(numArticles):
-        url = url + "&begin_date=" + getRandomDay()
-        url = url + "&api-key=" + key
-        page = urllib2.urlopen(url)
+        urlcopy = url
+        print i
+        urlcopy = urlcopy + "&begin_date=" + getRandomDay()
+        urlcopy = urlcopy + "&api-key=" + key
+        page = urllib2.urlopen(urlcopy)
         html = page.read()
+        page.close()
         jsonData = json.loads(html)
         docs = jsonData["response"]["docs"]
-        print docs
         for article in docs:
             articles.append(article["lead_paragraph"])
             articles.append(article["snippet"])
