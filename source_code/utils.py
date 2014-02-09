@@ -52,3 +52,11 @@ def write_to_file(lst):
 	for w in lst:
 		w = w.encode("ascii", "ignore")
 		f.write(w+"\n")
+
+def remove_non_alpha_numerics(file1,file2):
+	f = open (file1)
+	g = open (file2, "w")
+	for l in f :
+		l = l.replace("\n","")
+		if l.isalpha() or l.isalnum() :
+			g.write(l+"\n")
