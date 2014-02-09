@@ -3,6 +3,7 @@ import scipy as sp
 import wordUtils
 import MySQLdb
 import json
+import utils
 from scipy.spatial.distance import cosine
 
 def newClient(ID, weights):
@@ -39,12 +40,13 @@ def getWeights(ID):
 def getSimilarity(vect1, vect2):
 	return 1 - cosine(vect1, vect2)
 
-def getMostSimilar(user, articles): # What info do these articles contain?
-	mostSimilar = -1
-	mostSimilarArticle = None
-	for art in articles:
-		y = getSimilarity(art, user.vector)
-		if y > mostSimilar:
-			mostSimilar = y
-			mostSimilarArticle = art
-	return art
+def getMostSimilar(ID, articles): # What info do these articles contain?
+	articles = sorted(articles, 
+        key = lambda x: getSimilarity(getWeights(ID), utils.get_vector(x)))
+    return articles[0:5]
+
+def userUpdate(ID, article):
+    vect = np.array(utils.get_vector(article))
+    IDvect = np.array(getWeights(ID))
+    newVect = vect + IDvect
+    updateClient(ID, newVect)
