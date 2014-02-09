@@ -3,6 +3,7 @@ import scipy as sp
 import wordUtils
 import MySQLdb
 import json
+from scipy.spatial.distance import cosine
 
 def newClient(ID, weights):
     db = MySQLdb.connect(host="localhost",
@@ -30,14 +31,13 @@ def getWeights(ID):
                          passwd="password",
                          db="hackathonbb2014")
     cur = db.cursor()
-    cur.execute("SELECT FROM clients WHERE id=%s" % ID)
+    cur.execute("SELECT * FROM clients WHERE id='%s'" % ID)
     vect = cur.fetchall()
     return json.loads(vect[0][1])
 
 
 def getSimilarity(vect1, vect2):
-	return (numpy.dot(vect1, vect2)/
-		(numpy.dot(vect1, vect1) * numpy.dot(vect2, vect2)))
+	return 1 - cosine(vect1, vect2)
 
 def getMostSimilar(user, articles): # What info do these articles contain?
 	mostSimilar = -1
