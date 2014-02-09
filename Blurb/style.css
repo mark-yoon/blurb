@@ -2,19 +2,20 @@ body {
   min-width: 357px;
   overflow-x: hidden;
   font-family: 'Ubuntu', sans-serif;
-  background-color:#d2dbdc;
+  background-color:#e8e8e8;
   color: #53af85;
 }
 
 div.panel {
-  background:#e8eded;
+  background:#f9f9f9;
   padding:10px 30px;
   margin:10px;
   border-radius:15px;
+  border:1px solid #dcdcdc;
 }
 
 div.panel:hover {
-  background:#bbd2cb;
+  background:#f0f0f0;
 }
 
 a:link { 
