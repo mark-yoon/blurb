@@ -9,6 +9,7 @@
  * @type {string}
  */
 
+
 //This function shows an example of how we're changing it
  function myFunction() {
   x=document.getElementById("l1");  // Find the element
@@ -27,9 +28,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('button');
     // onClick's logic below:
     link.addEventListener('click', function() {
-      var myjson;
-      $.getJSON('localhost:8080', function(test){
-      	alert(test.url1);
-	  });
+ 	
+      $.getJSON('server.py&jsonp=?', function(data) {
+ 	  alert("test2");
+ 	  });
     });
 });

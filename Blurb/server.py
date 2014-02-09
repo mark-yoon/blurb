@@ -16,7 +16,7 @@ class myHandler(BaseHTTPRequestHandler):
 		# Send the html message
 		l = server2.get_URLS()
 		self.wfile.write(l)
-		return
+		return l
 
 try:
 	#Create a web server and define the handler to manage the
