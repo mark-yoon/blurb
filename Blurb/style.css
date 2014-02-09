@@ -26,3 +26,15 @@ a:link {
 
 a:visited {color: #666666;}
 a:hover {color: #53af85;}
+
+a.btn {
+display: block;
+width: 30px;
+height: 46px;
+cusror: pointer;
+background-image: url(refresh_top_padding.png);
+text-indent: -9999em;
+}
+
+a.btn:hover {background-image: url(refresh_hover_light.png);}
+a.btn:active {background-image: url(refresh_click_light.png);}
