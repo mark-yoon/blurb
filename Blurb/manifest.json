@@ -4,7 +4,7 @@
   "name": "Blurb",
   "description": "This extension takes user input and gives recommended news article for the user.",
   "version": "0.1",
-  "icons": {  "16": "blurbicon.png",
+  "icons": {  "16": "icon_19.png",
               "48": "icon_48.png",
               "128":"icon_128.png" },
 
@@ -12,7 +12,7 @@
     "https://secure.flickr.com/"
   ],
   "browser_action": {
-    "default_icon": "blurbicon.png",
+    "default_icon": "icon_19.png",
     "default_popup": "popup.html"
   }
 }
