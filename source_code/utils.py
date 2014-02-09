@@ -1,7 +1,7 @@
-import math 
+import math
 
-def string_list(str):
-	l = str.split()
+def string_list(strn):
+	l = strn.split()
 	lst = []
 	for s in l:
 		lst.append(s.lower())
@@ -21,3 +21,32 @@ def cosine_similarity(vect1,vect2):
 			len1 = len1 + float(vect1[i] * vect1[i])
 			len2 = len2 + float(vect2[i] * vect2[i])
 		return sum_/(math.sqrt(len1) * math.sqrt(len2))
+
+def get_words(lst,n):
+	semi_final_list = []
+	
+	for strn in lst:
+		for s in string_list(strn) :
+			semi_final_list.append(s)
+	
+	final_set = set(semi_final_list)
+	new_dictionary = {}
+	cut = int(float(n) * 0.25)
+	final_list = []
+
+	for st in final_set:
+		new_dictionary[st] = 0
+	
+	for st in semi_final_list:
+		new_dictionary[st] = new_dictionary[st] + 1
+	
+	for hi in new_dictionary.keys():
+		if new_dictionary[hi] < cut:
+			final_list.append(hi)
+
+	write_to_file(final_list)
+
+def write_to_file(lst):
+	f = open("words.txt")
+	for w in lst:
+		f.write(w+"\n")
