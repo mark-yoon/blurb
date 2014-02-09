@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', function() {
     var link = document.getElementById('button');
     // onClick's logic below:
     link.addEventListener('click', function() {
-      alert("Hi!");
+      var myjson;
+      $.getJSON('localhost:8080', function(json){
+      myjson = json;
+	  });
+      alert(myjson.extract());
     });
 });

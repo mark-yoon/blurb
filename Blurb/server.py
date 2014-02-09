@@ -15,7 +15,7 @@ class myHandler(BaseHTTPRequestHandler):
 		self.end_headers()
 		# Send the html message
 		l = server2.get_URLS()
-		self.wfile.write(l[0])
+		self.wfile.write(l)
 		return
 
 try:

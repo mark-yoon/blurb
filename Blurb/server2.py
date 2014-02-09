@@ -1,2 +1,3 @@
+import json
 def get_URLS ():
-	return["youtube.com"]
+	return json.dumps({"url1":"youtube.com"})
