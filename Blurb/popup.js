@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // onClick's logic below:
     link.addEventListener('click', function() {
  	
-      $.getJSON('server.py&jsonp=?', function(data) {
+      $.getJSON('localhost:8080', function(data) {
  	  alert("test2");
  	  });
     });
