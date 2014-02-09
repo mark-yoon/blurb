@@ -7,14 +7,14 @@ body {
 }
 
 div.panel {
-  background:#f9f9f9;
+  background:#e8eded;
   padding:10px 30px;
   margin:10px;
   border-radius:15px;
 }
 
 div.panel:hover {
-  background:#e9e9e9;
+  background:#bbd2cb;
 }
 
 a:link { 
