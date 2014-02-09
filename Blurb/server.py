@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import test3
+import server2
 from BaseHTTPServer import BaseHTTPRequestHandler,HTTPServer
 
 PORT_NUMBER = 8080
@@ -14,7 +14,7 @@ class myHandler(BaseHTTPRequestHandler):
 		self.send_header('Content-type','text/html')
 		self.end_headers()
 		# Send the html message
-		l = test3.get_URLS()
+		l = server2.get_URLS()
 		self.wfile.write(l[0])
 		return
 
